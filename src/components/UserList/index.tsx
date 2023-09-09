@@ -4,9 +4,12 @@ import { fetchUsers } from '@/api';
 import { useQuery } from '@tanstack/react-query';
 import { User } from '@/types';
 import { Pagination } from '../Pagination';
+import { UserModal } from '../UserModal';
 
 export const UserList = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [selectedUser, setSelectedUser] = useState<User | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { data, isLoading, isError } = useQuery<User[]>({
     queryKey: ['users', currentPage],
     queryFn: () => fetchUsers(currentPage),
@@ -17,6 +20,16 @@ export const UserList = () => {
   };
 
   const totalPages = data ? Math.floor(data.length / 3) : 0;
+
+  const openModal = (user: User) => {
+    setSelectedUser(user);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedUser(null);
+    setIsModalOpen(false);
+  };
 
   return (
     <main className='max-w-[120px] h-[250px] py-6 px-6'>
@@ -44,7 +57,11 @@ export const UserList = () => {
           </thead>
           <tbody className='divide-y divide-black'>
             {data.map((user) => (
-              <tr key={user.id} className='bg-white'>
+              <tr
+                key={user.id}
+                className='bg-white cursor-pointer'
+                onClick={() => openModal(user)}
+              >
                 <td className='text-text-color px-1 py-2 text-center whitespace-nowrap'>
                   {user.id}
                 </td>
@@ -67,6 +84,9 @@ export const UserList = () => {
         totalPages={totalPages}
         onPageChange={handlePageChange}
       />
+      {isModalOpen && selectedUser && (
+        <UserModal user={selectedUser} onClose={closeModal} />
+      )}
     </main>
   );
 };

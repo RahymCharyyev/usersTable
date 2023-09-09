@@ -12,3 +12,14 @@ export interface PaginationProps {
     totalPages: number;
     onPageChange: (newPage: number) => void;
 }
+
+export interface UserModalProps {
+    user: {
+        id: number;
+        avatar: string;
+        first_name: string;
+        last_name: string;
+        email: string;
+    };
+    onClose: () => void;
+}
