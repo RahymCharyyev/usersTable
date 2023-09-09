@@ -1,14 +1,22 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { fetchUsers } from '@/api';
 import { useQuery } from '@tanstack/react-query';
 import { User } from '@/types';
+import { Pagination } from '../Pagination';
 
 export const UserList = () => {
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const { data, isLoading, isError } = useQuery<User[]>({
-    queryKey: ['users'],
-    queryFn: () => fetchUsers(),
+    queryKey: ['users', currentPage],
+    queryFn: () => fetchUsers(currentPage),
   });
+
+  const handlePageChange = (newPage: number) => {
+    setCurrentPage(newPage);
+  };
+
+  const totalPages = data ? Math.floor(data.length / 3) : 0;
 
   return (
     <main className='max-w-[120px] h-[250px] py-6 px-6'>
@@ -54,6 +62,11 @@ export const UserList = () => {
           </tbody>
         </table>
       )}
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+      />
     </main>
   );
 };
