@@ -1,8 +1,8 @@
 import instance from './axios';
 
-export const fetchUsers = async () => {
+export const fetchUsers = async (page = 1) => {
     try {
-        const response = await instance.get('/api/users?page=${page}');
+        const response = await instance.get(`/api/users?page=${page}`);
         if (response.status !== 200) {
             throw new Error('Network response was not ok');
         }
