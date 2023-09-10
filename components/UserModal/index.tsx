@@ -1,5 +1,15 @@
 import React from 'react';
-import { UserModalProps } from '@/types';
+
+interface UserModalProps {
+  user: {
+    id: number;
+    avatar: string;
+    first_name: string;
+    last_name: string;
+    email: string;
+  };
+  onClose: () => void;
+}
 
 export const UserModal: React.FC<UserModalProps> = ({ user, onClose }) => {
   return (
