@@ -25,9 +25,9 @@ export const Pagination: React.FC<PaginationProps> = ({
 
   return (
     <div className='w-[250px]'>
-      <div className='flex justify-center  items-center mx-4'>
+      <div className='flex justify-center items-center text-xs'>
         <button
-          className={`px-2 py-2 text-pagination-color hover:text-black ${
+          className={`px-1 py-1 text-pagination-color hover:text-black ${
             currentPage === 1 ? 'cursor-not-allowed' : ''
           }`}
           onClick={() => onPageChange(1)}
@@ -36,7 +36,7 @@ export const Pagination: React.FC<PaginationProps> = ({
           {'<<'}
         </button>
         <button
-          className={`px-2 py-2 text-pagination-color hover:text-black ${
+          className={`px-1 py-1 text-pagination-color hover:text-black ${
             currentPage === 1 ? 'cursor-not-allowed' : ''
           }`}
           onClick={prevPage}
@@ -47,7 +47,7 @@ export const Pagination: React.FC<PaginationProps> = ({
         {pageNumbers.map((pageNumber) => (
           <button
             key={pageNumber}
-            className={`px-2 py-2 ${
+            className={`px-1 py-1 ${
               pageNumber === currentPage
                 ? 'text-black'
                 : 'text-pagination-color hover:text-black'
@@ -58,7 +58,7 @@ export const Pagination: React.FC<PaginationProps> = ({
           </button>
         ))}
         <button
-          className={`px-2 py-2  text-pagination-color hover:text-black ${
+          className={`px-1 py-1  text-pagination-color hover:text-black ${
             currentPage === totalPages || totalPages === 0
               ? 'cursor-not-allowed'
               : ''
@@ -69,7 +69,7 @@ export const Pagination: React.FC<PaginationProps> = ({
           {'>'}
         </button>
         <button
-          className={`px-2 py-2  text-pagination-color hover:text-black ${
+          className={`px-1 py-1  text-pagination-color hover:text-black ${
             currentPage === totalPages || totalPages === 0
               ? 'cursor-not-allowed'
               : ''

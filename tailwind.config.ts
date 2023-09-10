@@ -17,7 +17,8 @@ const config: Config = {
         'header-bg': '#4d4d4d',
         'row-bg': '#f0f0f0',
         'text-color': "#00994d",
-        'pagination-color': "#66b2ff"
+        'pagination-color': "#66b2ff",
+        'profile-bg': "#cccccc"
       },
     },
   },
