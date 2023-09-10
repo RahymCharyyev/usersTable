@@ -42,8 +42,8 @@ export const UserList = () => {
           style={{
             overflowX: 'scroll',
             overflowY: 'scroll',
-            maxWidth: '350px',
-            maxHeight: '220px',
+            maxWidth: '250px',
+            maxHeight: '120px',
             direction: 'rtl',
           }}
         >
@@ -51,51 +51,48 @@ export const UserList = () => {
             style={{
               direction: 'ltr',
             }}
-            className='divide-y divide-black'
           >
             <thead className='sticky top-0 z-10'>
-              <tr>
-                <th className='sticky left-0 bg-header-bg px-8 py-2 text-center border border-gray-400 text-xs font-medium text-white uppercase whitespace-nowrap'>
+              <tr className='bg-header-bg text-center text-xs font-medium text-white uppercase whitespace-nowrap'>
+                <th className='sticky left-0 bg-header-bg px-4 py-1 border border-gray-400'>
                   ID
                 </th>
-                <th className='bg-header-bg px-8 py-2 text-center border border-gray-400 text-xs font-medium text-white uppercase whitespace-nowrap'>
+                <th className=' px-4 py-1 border border-gray-400'>
                   Given Name
                 </th>
-                <th className='bg-header-bg px-8 py-2 text-center border border-gray-400 text-xs font-medium text-white uppercase whitespace-nowrap'>
+                <th className=' px-4 py-1 border border-gray-400'>
                   Family Name
                 </th>
-                <th className='bg-header-bg px-8 py-2 text-center border border-gray-400 text-xs font-medium text-white uppercase whitespace-nowrap'>
-                  Email
-                </th>
+                <th className=' px-4 py-1 border border-gray-400'>Email</th>
               </tr>
             </thead>
-            <tbody className='divide-y divide-black'>
+            <tbody>
               {data.map((user, index) => (
                 <tr
                   key={user.id}
                   className={
                     index % 2 === 0
-                      ? 'bg-white cursor-pointer'
-                      : 'bg-row-bg cursor-pointer'
+                      ? 'bg-white cursor-pointer text-xs text-text-color text-center whitespace-nowrap'
+                      : 'bg-row-bg cursor-pointer text-xs text-text-color text-center whitespace-nowrap'
                   }
                   onClick={() => openModal(user)}
                 >
                   <td
                     className={
                       index % 2 === 0
-                        ? 'bg-white cursor-pointer sticky left-0 text-text-color px-1 py-2 text-center border border-gray-400 whitespace-nowrap'
-                        : 'bg-row-bg cursor-pointer sticky left-0 text-text-color px-1 py-2 text-center border border-gray-400 whitespace-nowrap'
+                        ? 'bg-white sticky left-0 px-1 py-1 border border-gray-400'
+                        : 'bg-row-bg sticky left-0 px-1 py-1 border border-gray-400'
                     }
                   >
                     {user.id}
                   </td>
-                  <td className='text-text-color px-1 py-2 text-center border border-gray-400 whitespace-nowrap'>
+                  <td className='px-1 py-1 border border-gray-400'>
                     {user.first_name}
                   </td>
-                  <td className='text-text-color px-1 py-2 text-center border border-gray-400 whitespace-nowrap'>
+                  <td className='px-1 py-1 border border-gray-400'>
                     {user.last_name}
                   </td>
-                  <td className='text-text-color px-1 py-2 text-center border border-gray-400 whitespace-nowrap'>
+                  <td className='px-1 py-1 border border-gray-400'>
                     {user.email}
                   </td>
                 </tr>
