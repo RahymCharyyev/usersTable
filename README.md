@@ -83,8 +83,8 @@ Before you begin, ensure you have the following prerequisites installed:
    Pagination logic calculates the total number of pages based on the number of users fetched from the API. It ensures that users can navigate through the pages of user data.
 
 8. **Deployed Version**
-    You can find a deployed version of this project on Vercel. It's accessible at the following URL: deployment URL
+    You can find a deployed version of this project on Vercel. It's accessible at the following URL: https://users-table-ten.vercel.app/
 
-    Deployed Version on [Vercel] (deployment URL)
+    Deployed Version on [Vercel] (https://users-table-ten.vercel.app/)
 
 
