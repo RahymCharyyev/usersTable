@@ -7,15 +7,18 @@ import { UserModal } from '../UserModal';
 import { useRouter } from 'next/router';
 import TableHead from './TableHead';
 import TableBody from './TableBody';
+import { LoadingComponent } from './Loading';
+import { ErrorComponent } from './Error';
 
 export const UserList = () => {
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const router = useRouter();
-  const page = router.query.page || 1;
+  const page = Number(router.query.page) || 1;
+
   const { data, isLoading, isError } = useQuery<User[]>({
-    queryKey: ['users', router.query.page],
-    queryFn: () => fetchUsers(Number(page)),
+    queryKey: ['users', page],
+    queryFn: () => fetchUsers(page),
   });
 
   const openModal = (user: User) => {
@@ -28,14 +31,14 @@ export const UserList = () => {
     setIsModalOpen(false);
   };
 
-  const totalPages = data ? Math.floor(data.length / 3) : 0;
+  const totalPages = data ? Math.ceil(data.length / 3) : 0;
 
   return (
     <main className='py-6 px-6'>
       {isLoading ? (
-        <div className='text-center text-gray-600'>Loading...</div>
+        <LoadingComponent />
       ) : isError ? (
-        <div className='text-center text-red-600'>Error loading users</div>
+        <ErrorComponent />
       ) : (
         <div
           style={{
