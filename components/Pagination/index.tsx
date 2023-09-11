@@ -37,8 +37,6 @@ export const Pagination: React.FC<PaginationProps> = ({ totalPages }) => {
     (_, index) => index + 1
   );
 
-  console.log(router.query);
-
   return (
     <div className='w-[250px]'>
       <div className='flex justify-center items-center text-xs'>
