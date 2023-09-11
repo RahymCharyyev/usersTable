@@ -12,16 +12,16 @@ Before you begin, ensure you have the following prerequisites installed:
    Clone the repository containing the code to your local machine.
 
    ```bash
-   git clone https://github.com/RahymCharyyev/.git
+   git clone https://github.com/RahymCharyyev/usersTable.git
    cd usersTable
    ```
 
 2. **Install Dependencies**
 
    Install the project dependencies using yarn.
-   
+
    ```bash
-   yarn install
+   yarn 
    ```
 
 3. **Environment Variables**
@@ -81,5 +81,10 @@ Before you begin, ensure you have the following prerequisites installed:
 7. **Pagination Logic**
 
    Pagination logic calculates the total number of pages based on the number of users fetched from the API. It ensures that users can navigate through the pages of user data.
+
+8. **Deployed Version**
+    You can find a deployed version of this project on Vercel. It's accessible at the following URL: deployment URL
+
+    Deployed Version on [Vercel] (deployment URL)
 
 
