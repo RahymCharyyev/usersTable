@@ -19,9 +19,9 @@ Before you begin, ensure you have the following prerequisites installed:
 2. **Install Dependencies**
 
    Install the project dependencies using yarn.
-
+   
    ```bash
- yarn 
+   yarn install
    ```
 
 3. **Environment Variables**
